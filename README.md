@@ -1,20 +1,17 @@
-# STM32主从双机SPI通信测试（代码在SPI_DEMO,点下star可以收藏起来不会丢）
+# STM32主从双机SPI通信测试（代码在SPI_DEMO.rar,点个star）
+
 
 #### **实现功能：主从设备可以互相接收到对方的数据**
 
 **stm32f103c8t6主< —————>stm32f103c8t6从**
 
 **接线：**
-
-                                                     主（SPI1）                                          从（SPI1）
-
-                                                MOSI（PA7）           <——>               MOSI（PA7）
-
-                                             MISO（PA6）           <——>               MISO（PA6）
-
-                                                SPI_CLK(PA5)            <——>               SPI_CLK(PA5)
-
-                                                SPI_NSS(PA8)            <——>               SPI_NSS(PA4)  
+主（SPI1） | 从（SPI1）
+---|---
+MOSI（PA7）  | MOSI（PA7）
+MISO（PA6）  | MISO（PA6）
+SPI_CLK(PA5) | SPI_CLK(PA5)
+SPI_NSS(PA8) | SPI_NSS(PA4)
 
 连线是一一对应的，不能将MOSI接上MISO，且两个设备的配置参数速率、相位、极性、CRC和传输方向及位数要相同，**一定要共地**。
 **测试效果**：
@@ -33,7 +30,7 @@ COM8是主设备接收到从设备的数据  COM4是从设备接收到主设备�
 
 3、以上两个问题同时出现。
 
-### **排插问题**：
+### **排查问题**：
 
 1、首先，我将主设备的MOSI连上自身主设备的MISO，测试结果，主设备是可以接收数据。排除了第一种可能。
 
@@ -44,16 +41,12 @@ COM8是主设备接收到从设备的数据  COM4是从设备接收到主设备�
 **stm32f103c8t6主< —————>stm32f429IG从**
 
 **接线：**
-
-                                                     主（SPI1）                                          从（SPI2）
-
-                                               MOSI（PA7）           <——>               MOSI（PB12）
-
-                                             MISO（PA6）           <——>               MISO（PB13）
-
-                                               SPI_CLK(PA5)            <——>               SPI_CLK(PB14)
-
-                                               SPI_NSS(PA8)            <——>               SPI_NSS(PB15)  
+主（SPI1） | 从（SPI2）
+---|---
+MOSI（PA7）  | MOSI（PB15）
+MISO（PA6）  | MISO（PB14）
+SPI_CLK(PA5) | SPI_CLKP(B13)
+SPI_NSS(PA8) | SPI_NSS(PB12)
 **效果**：
 
 ![](https://github.com/imagine90/STM32_DEMO/blob/643a01c2ee4ae6f22788e9f7cba27a5f38d35561/image.png)
