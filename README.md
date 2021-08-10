@@ -1,6 +1,6 @@
 # STM32主从双机SPI通信测试（代码在SPI_DEMO.rar,点个star）
 
-![博客原文](https://blog.csdn.net/weixin_43746325/article/details/119545607)
+[博客原文](https://blog.csdn.net/weixin_43746325/article/details/119545607)
 #### **实现功能：主从设备可以互相接收到对方的数据**
 
 **stm32f103c8t6主< —————>stm32f103c8t6从**
